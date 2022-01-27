@@ -1,8 +1,11 @@
 [tool.poetry]
-name = "{{cookiecutter.project_name}}"
+name = "{{cookiecutter.package_name}}"
 version = "{{cookiecutter.version}}"
 description = "{{cookiecutter.project_short_description}}"
 authors = ["{{cookiecutter.full_name}} <{{cookiecutter.email}}>"]
+packages = [
+    { include = "{{cookiecutter.package_slug}}", from = "src" },
+]
 
 [tool.poetry.dependencies]
 python = "^3.10"
