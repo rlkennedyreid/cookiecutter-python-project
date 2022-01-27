@@ -23,10 +23,14 @@ testpaths = [
     "tests",
 ]
 
+[tool.mypy]
+files = ["src", "tests"]
+
 # See: https://black.readthedocs.io/en/stable/guides/using_black_with_other_tools.html
 # For info on compatibility of black with isort, pylint, flake8
 [tool.isort]
 profile = "black"
+src_paths = ["src", "tests"]
 
 [tool.pylint.messages_control]
 disable = "C0330, C0326"
