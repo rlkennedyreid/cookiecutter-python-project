@@ -32,7 +32,7 @@ files = ["src", "tests"]
 profile = "black"
 src_paths = ["src", "tests"]
 
-[tool.pylint.messages_control]
+[tool.pylint.'MESSAGES CONTROL']
 disable = "C0330, C0326"
 
 [tool.pylint.format]
