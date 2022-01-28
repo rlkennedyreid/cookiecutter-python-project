@@ -40,7 +40,7 @@ src_paths = ["src", "tests"]
 # extend_skip_glob = ["exclude_dir/**"]
 
 [tool.pylint.'MESSAGES CONTROL']
-disable = "C0330, C0326"
+disable = "C0330, C0326, C0114, C0116"
 
 [tool.pylint.format]
 max-line-length = "88"
