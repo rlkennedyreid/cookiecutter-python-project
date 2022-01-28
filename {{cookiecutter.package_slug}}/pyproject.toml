@@ -8,7 +8,7 @@ packages = [
 ]
 
 [tool.poetry.scripts]
-{{cookiecutter.package_name}} = '{{cookiecutter.package_slug}}.__main__:main'
+{{cookiecutter.package_name}} = "{{cookiecutter.package_slug}}.__main__:main"
 
 [tool.poetry.dependencies]
 python = "^3.10"
@@ -34,6 +34,7 @@ files = ["src", "tests"]
 [tool.isort]
 profile = "black"
 src_paths = ["src", "tests"]
+# extend_skip_glob = ["exclude_dir/**"]
 
 [tool.pylint.'MESSAGES CONTROL']
 disable = "C0330, C0326"
