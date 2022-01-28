@@ -29,6 +29,9 @@ testpaths = [
 [tool.mypy]
 files = ["src", "tests"]
 
+[tool.black]
+quiet = true
+
 # See: https://black.readthedocs.io/en/stable/guides/using_black_with_other_tools.html
 # For info on compatibility of black with isort, pylint, flake8
 [tool.isort]
