@@ -5,6 +5,6 @@
   "project_name": "Python Project Template",
   "package_name": "{{ cookiecutter.project_name.lower().replace(' ', '-').replace('_', '-') }}",
   "package_slug": "{{ cookiecutter.package_name.lower().replace('-', '_') }}",
-  "project_short_description": "A poetry-based python project template with vscode settings and linting tools that I typically use.",
+  "project_short_description": "A poetry-based python-project template with settings and tools that I typically use.",
   "version": "0.1.0"
 }
