@@ -23,7 +23,7 @@ Working [pre-commit](https://pre-commit.com/) hooks to run formatting and lintin
 
 ## Layout
 - [src layout](https://blog.ionelmc.ro/2014/05/25/python-packaging/)
-- [PEP 518](https://www.python.org/dev/peps/pep-0518) compliance where possible (see [pyproject.toml]({{cookiecutter.package_slug}}/pyproject.toml) and [setup.cfg]({{cookiecutter.package_slug}}/setup.cfg)).
+- [PEP 518](https://www.python.org/dev/peps/pep-0518) compliance where possible (see [pyproject.toml]({{cookiecutter.package_slug}}/pyproject.toml) and [setup.cfg]({{cookiecutter.package_slug}}/setup.cfg))
 - Python virtual environment assumed to be in root directory by [vscode settings]({{cookiecutter.package_slug}}/.vscode)
 
 ## Usage
