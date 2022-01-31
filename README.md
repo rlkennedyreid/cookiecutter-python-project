@@ -18,6 +18,8 @@ A poetry-based python-project template with settings and tools that I typically 
 ### CI/CD
 Working [GitHub Actions](https://docs.github.com/en/actions) workflows that run formatting and linting checks, and tests.
 
+Working [dependabot](https://docs.github.com/en/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates#about-the-dependabotyml-file) config that checks for updates in poetry depencies and GitHub Actions on the main branch.
+
 ### pre-commit
 Working [pre-commit](https://pre-commit.com/) hooks to run formatting and linting checks.
 
