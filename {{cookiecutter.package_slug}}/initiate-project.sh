@@ -1,11 +1,10 @@
 #/usr/bin/env bash
-set -euo pipefail
 
 git init
 
 pre-commit install
 
-python -m venv .venv
+python -m venv --upgrade-deps .venv
 
 . .venv/bin/activate
 
