@@ -1,0 +1,15 @@
+# https://taskfile.dev/#/
+version: "3"
+
+tasks:
+  lint:
+    cmds:
+      - pylint src tests
+      - black --check .
+      - isort --check .
+      - flake8
+      - mypy
+  format:
+    cmds:
+      - black .
+      - isort .
