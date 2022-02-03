@@ -10,8 +10,6 @@ python -m venv --upgrade-deps .venv
 
 poetry install
 
-echo "initiate-project.sh" >> .gitignore
-
 git add --all
 
 git commit -m "Make initial commit from cookiecutter project"

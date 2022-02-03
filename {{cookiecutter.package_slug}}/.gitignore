@@ -153,11 +153,6 @@ cython_debug/
 #.idea/
 
 .vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-!.vscode/*.code-snippets
 
 # Local History for Visual Studio Code
 .history/
@@ -230,3 +225,6 @@ $RECYCLE.BIN/
 
 # .nfs files are created when an open file is removed but is still being accessed
 .nfs*
+
+# cookiecutter template initiation script rlkennedyreid/python-project-template
+initiate-project.sh
