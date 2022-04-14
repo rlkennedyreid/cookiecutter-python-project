@@ -8,7 +8,7 @@ packages = [
 ]
 
 [tool.poetry.scripts]
-{{cookiecutter.package_name}} = "{{cookiecutter.package_slug}}.__main__:main"
+"{{cookiecutter.package_name}}" = "{{cookiecutter.package_slug}}.__main__:main"
 
 [tool.poetry.dependencies]
 python = "^3.10"
