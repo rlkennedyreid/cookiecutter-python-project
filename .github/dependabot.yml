@@ -1,13 +1,13 @@
 version: 2
 updates:
   - package-ecosystem: "pip"
-    directory: '/{{cookiecutter.package_slug}}'
+    directory: "/{{cookiecutter.package_slug}}"
     schedule:
       interval: "daily"
     target-branch: "main"
 
   - package-ecosystem: "github-actions"
-    directory: '/{{cookiecutter.package_slug}}'
+    directory: "/{{cookiecutter.package_slug}}"
     schedule:
       interval: "daily"
     target-branch: "main"
