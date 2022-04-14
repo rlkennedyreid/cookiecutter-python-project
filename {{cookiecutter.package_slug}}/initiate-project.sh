@@ -12,4 +12,4 @@ poetry install
 
 git add --all
 
-git commit -m "Make initial commit from cookiecutter project"
+git commit -m "🎉 Make initial commit from cookiecutter project"
