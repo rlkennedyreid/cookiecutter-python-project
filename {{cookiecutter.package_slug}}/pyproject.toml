@@ -8,18 +8,10 @@ packages = [
 ]
 
 [tool.poetry.scripts]
-"{{cookiecutter.package_name}}" = "{{cookiecutter.package_slug}}.__main__:main"
+{{cookiecutter.package_name}} = "{{cookiecutter.package_slug}}.__main__:main"
 
 [tool.poetry.dependencies]
-python = "^3.10"
-
-[tool.poetry.dev-dependencies]
-pytest = "^7.0.0"
-pylint = "^2.12.2"
-mypy = "^0.931"
-black = "^22.1.0"
-flake8 = "^4.0.1"
-isort = "^5.10.1"
+python = "^{{cookiecutter.python_version}}"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

@@ -8,6 +8,8 @@ python -m venv --upgrade-deps .venv
 
 . .venv/bin/activate
 
+poetry add -D pytest pylint mypy black flake8 isort
+
 poetry install
 
 git add --all
