@@ -31,7 +31,7 @@ Working [pre-commit](https://pre-commit.com/) hooks to run formatting and lintin
 ## Usage
 
 ```bash
-cookiecutter gh:rlkennedyreid/python-project-template
+cookiecutter gh:rlkennedyreid/cookiecutter-python-project
 ```
 
 [A bash script]({{cookiecutter.package_slug}}/initiate-project.sh) is included in the root directory of the project to carry out initial config.
