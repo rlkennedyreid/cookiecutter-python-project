@@ -11,6 +11,6 @@ repos:
     hooks:
       - id: check-test
         name: check-test
-        entry: pytest
+        entry: task test
         language: system
         pass_filenames: false

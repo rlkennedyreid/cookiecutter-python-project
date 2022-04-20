@@ -4,7 +4,6 @@ version: "3"
 tasks:
   lint:
     cmds:
-      - pylint src tests
       - black --check .
       - isort --check .
       - flake8
@@ -13,3 +12,6 @@ tasks:
     cmds:
       - black .
       - isort .
+  test:
+    cmds:
+      - pylint src tests
