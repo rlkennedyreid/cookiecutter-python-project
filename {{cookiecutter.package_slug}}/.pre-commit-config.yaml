@@ -7,10 +7,3 @@ repos:
         entry: task lint
         language: system
         pass_filenames: false
-  - repo: local
-    hooks:
-      - id: check-test
-        name: check-test
-        entry: task test
-        language: system
-        pass_filenames: false
