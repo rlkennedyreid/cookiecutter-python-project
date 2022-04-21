@@ -1,17 +1,50 @@
 #/usr/bin/env bash
 
-python -m venv --upgrade-deps .venv
+function echo_green() {
+  local GREEN='\033[0;32m'
+  local NOCOLOUR='\033[0m'
+  echo -e "${GREEN}${1}${NOCOLOUR}"
+}
 
-. .venv/bin/activate
+echo_error() {
+  local RED='\033[0;31m'
+  local NOCOLOUR='\033[0m'
+  echo -e "${RED}${1}${NOCOLOUR}"
+}
 
-poetry add -D pytest pylint mypy black flake8 isort
+echo_green "Initiating project..."
 
-poetry install
+if [ -x "$(command -v python)" ] && [ -x "$(command -v poetry)" ] && [ -x "$(command -v git)" ]; then
 
-git init
+  echo_green "Creating python virtual environment with venv..."
+  python -m venv --upgrade-deps .venv
 
-pre-commit install
+  echo_green "Activating virtual environment..."
+  . .venv/bin/activate
 
-git add --all
+  echo_green "Installing development requirements..."
+  poetry add -n -D pytest pylint mypy black flake8 isort
 
-git commit -m "🎉 Make initial commit from cookiecutter project"
+  echo_green "Installing root package..."
+  poetry install -n
+
+  echo_green "Initialising git..."
+  git init
+
+  if [ -x "$(command -v pre-commit)" ]; then
+    echo_green 'Installing pre-commit hooks...'
+    pre-commit install
+  fi
+
+  echo_green "Making first commit..."
+  git add --all && git commit -m "🎉 Make initial commit from cookiecutter project"
+
+  if [ -x "$(command -v gitmoji)" ]; then
+    echo_green 'Installing gitmoji hook...'
+    gitmoji -i
+  fi
+else
+  echo_error 'Error: Required dependencies not found. Need: [python, poetry, git]' 1>&2
+fi
+
+unset -f echo_green echo_error
