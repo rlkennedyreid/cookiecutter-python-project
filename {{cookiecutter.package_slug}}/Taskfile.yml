@@ -7,6 +7,7 @@ tasks:
       - black --check .
       - isort --check .
       - flake8
+      - pylint src tests
       - mypy
   format:
     cmds:
@@ -14,4 +15,4 @@ tasks:
       - isort .
   test:
     cmds:
-      - pylint src tests
+      - pytest
