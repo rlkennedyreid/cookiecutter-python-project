@@ -25,8 +25,8 @@ Working [pre-commit](https://pre-commit.com/) hooks to run formatting and lintin
 
 ## Layout
 - [src layout](https://blog.ionelmc.ro/2014/05/25/python-packaging/)
-- [PEP 518](https://www.python.org/dev/peps/pep-0518) compliance where possible (see [pyproject.toml]({{cookiecutter.package_slug}}/pyproject.toml) and [setup.cfg]({{cookiecutter.package_slug}}/setup.cfg))
-- Python virtual environment assumed to be in root directory by [vscode settings]({{cookiecutter.package_slug}}/.vscode)
+- [PEP 518](https://www.python.org/dev/peps/pep-0518) compliance where possible (see [pyproject.toml]({{cookiecutter.package_name}}/pyproject.toml) and [setup.cfg]({{cookiecutter.package_name}}/setup.cfg))
+- Python virtual environment assumed to be in root directory by [vscode settings]({{cookiecutter.package_name}}/.vscode)
 
 ## Usage
 
@@ -34,4 +34,5 @@ Working [pre-commit](https://pre-commit.com/) hooks to run formatting and lintin
 cookiecutter gh:rlkennedyreid/cookiecutter-python-project
 ```
 
-[A bash script]({{cookiecutter.package_slug}}/initiate-project.sh) is included in the root directory of the project to carry out initial config.
+[A bash script]({{cookiecutter.package_name}}/initiate-project.sh) is included in the root directory of the project to carry out initial config.
+Executing using [`source/.`](https://www.gnu.org/software/bash/manual/bash.html#index-source) is recommended, as the python virtual environment will be activated for the running shell environment.
