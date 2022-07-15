@@ -1,4 +1,4 @@
-#/usr/bin/env bash
+#!/usr/bin/env bash
 
 function echo_green() {
   local GREEN='\033[0;32m'
@@ -23,7 +23,7 @@ if [ -x "$(command -v python)" ] && [ -x "$(command -v poetry)" ] && [ -x "$(com
   . .venv/bin/activate
 
   echo_green "Installing development requirements..."
-  poetry add -n -D pytest pylint mypy black flake8 isort
+  poetry add -n -D pytest pylint mypy black flake8 isort taskipy
 
   echo_green "Installing root package..."
   poetry install -n

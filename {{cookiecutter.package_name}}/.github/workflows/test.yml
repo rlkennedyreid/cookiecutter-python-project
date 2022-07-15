@@ -12,7 +12,7 @@ jobs:
 
       - name: Set up Python {{cookiecutter.python_version}}
         id: setup-python
-        uses: actions/setup-python@v3
+        uses: actions/setup-python@v4
         with:
           python-version: "{{cookiecutter.python_version}}"
 
@@ -38,13 +38,6 @@ jobs:
 
       - name: Install root project
         run: poetry install --no-interaction
-
-      - name: Install Task
-        uses: arduino/setup-task@v1
-        with:
-{% raw %}
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-{% endraw %}
 
       - name: Test
         run: poetry run task test

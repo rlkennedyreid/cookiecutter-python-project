@@ -66,3 +66,26 @@ score="no"
 [tool.pyright]
 include = ["src"]
 # exclude = ["exclude_dir/"]
+
+[tool.taskipy.tasks.lint]
+cmd = "task lint_black && task lint_isort && task lint_flake8 && task lint_pylint && task lint_mypy"
+help = "runs all lint checks"
+
+[tool.taskipy.tasks.format]
+cmd = "task format_black && task format_isort"
+help = "Runs all formatting tasks"
+
+[tool.taskipy.tasks.test]
+cmd = "pytest"
+help = "Runs tests"
+
+[tool.taskipy.tasks]
+lint_black = { cmd = "black --check ."}
+lint_isort = { cmd = "isort --check ."}
+lint_flake8 = { cmd = "flake8"}
+lint_pylint = { cmd = "pylint src tests"}
+lint_mypy = { cmd = "mypy"}
+format_black = { cmd = "black ."}
+format_isort = { cmd = "isort ."}
+post_format = { cmd = "task lint"}
+pre_test = { cmd = "task format" }
