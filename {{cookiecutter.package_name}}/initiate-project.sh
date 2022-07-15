@@ -22,10 +22,10 @@ if [ -x "$(command -v python)" ] && [ -x "$(command -v poetry)" ] && [ -x "$(com
   echo_green "Activating virtual environment..."
   . .venv/bin/activate
 
-  echo_green "Installing development requirements..."
-  poetry add -n -D pytest pylint mypy black flake8 isort taskipy
+  echo_green "Add development requirements to project..."
+  poetry add --lock -n -D pytest pylint mypy black flake8 isort taskipy
 
-  echo_green "Installing root package..."
+  echo_green "Installing project..."
   poetry install -n
 
   echo_green "Initialising git..."

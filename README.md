@@ -4,7 +4,8 @@ A poetry-based python-project template with settings and tools that I typically 
 ## Requirements
 - [poetry](https://python-poetry.org/docs/)
 - [cookiecutter](https://github.com/cookiecutter/cookiecutter)
-- [pre-commit](https://github.com/pre-commit/pre-commit) - *optional*
+- [pre-commit](https://github.com/pre-commit/pre-commit) - *(Optional)*
+- [gitmoji-cli](https://github.com/carloscuesta/gitmoji-cli) - *(Optional)* 🎉
 
 ## Features
 ### Formatting, Linting and Testing
@@ -14,6 +15,13 @@ A poetry-based python-project template with settings and tools that I typically 
 - [pylint](https://github.com/PyCQA/pylint)
 - [mypy](https://github.com/python/mypy)
 - [pytest](https://github.com/pytest-dev/pytest)
+
+[taskipy](https://pypi.org/project/taskipy/) is used to run these tools in pre-commit hooks and the CI/CD.
+**Note:** These tools are not already defined in `pyproject.toml` automatically.
+This is to ensure that the tools are up to date when starting the project.
+
+See [below](#initialise-the-project) for details on initialising the project, which includes adding these dev dependencies.
+
 
 ### CI/CD
 Working [GitHub Actions](https://docs.github.com/en/actions) workflows that run formatting and linting checks, and tests.
@@ -30,9 +38,25 @@ Working [pre-commit](https://pre-commit.com/) hooks to run formatting and lintin
 
 ## Usage
 
+### Run cookiecutter
 ```bash
 cookiecutter gh:rlkennedyreid/cookiecutter-python-project
 ```
 
-[A bash script]({{cookiecutter.package_name}}/initiate-project.sh) is included in the root directory of the project to carry out initial config.
-Executing using [`source/.`](https://www.gnu.org/software/bash/manual/bash.html#index-source) is recommended, as the python virtual environment will be activated for the running shell environment.
+### Initialise the project
+[A bash script]({{cookiecutter.package_name}}/initiate-project.sh) is included in the root directory of the project to carry out initial configuration. You can run this, or use it as a reference to set up your project.
+
+The script does the following:
+- Creates a virtual environment using [venv](https://docs.python.org/3/library/venv.html)
+- Adds dev dependencies to the project
+- Installs the project into the virtual environment
+- Initialises a git repository
+- Installs pre-commit hooks to the git repository
+    - *This is skipped if pre-commit is not available*
+- Installs gitmoji hooks to the git repository
+    - *This is skipped if gitmoji is not available*
+
+
+Executing the script using [`source/.`](https://www.gnu.org/software/bash/manual/bash.html#index-source) is recommended, as the python virtual environment will be activated for the current shell on completion.
+
+**Note:** The script assumes the `python` in your `PATH` is the correct version.
