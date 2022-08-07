@@ -1,5 +1,9 @@
-from importlib.metadata import version
+from .settings import get_settings
+from .utils import create_basic_logger, package, version
 
-# See: https://github.com/python-poetry/poetry/pull/2366#issuecomment-652418094
-# For info on poetry versionion for Python < 3.8
-__version__ = version(__name__)
+__version__ = version()
+
+# Set the log level for the top-level package. This log level will propogate to all child modules.
+# Using this method avoids creating the root logger, which will cause third party libs
+# to spam the log output
+create_basic_logger(package(), get_settings().log_level)

@@ -9,7 +9,7 @@ function echo_green() {
 echo_error() {
   local RED='\033[0;31m'
   local NOCOLOUR='\033[0m'
-  echo -e "${RED}${1}${NOCOLOUR}"
+  echo -e "${RED}${1}${NOCOLOUR}" 1>&2
 }
 
 echo_green "Initiating project..."
@@ -23,7 +23,7 @@ if [ -x "$(command -v python)" ] && [ -x "$(command -v poetry)" ] && [ -x "$(com
   . .venv/bin/activate
 
   echo_green "Add development requirements to project..."
-  poetry add --lock -n -D pytest pylint mypy black flake8 isort taskipy
+  poetry add --lock -n -D pytest pylint mypy black flake8 isort taskipy pydantic[dotenv]
 
   echo_green "Installing project..."
   poetry install -n
@@ -44,7 +44,7 @@ if [ -x "$(command -v python)" ] && [ -x "$(command -v poetry)" ] && [ -x "$(com
     gitmoji -i
   fi
 else
-  echo_error 'Error: Required dependencies not found. Need: [python, poetry, git]' 1>&2
+  echo_error 'Error: Required dependencies not found. Need: [python, poetry, git]'
 fi
 
 unset -f echo_green echo_error
