@@ -1,3 +1,6 @@
+# cookiecutter template initiation script https://github.com/rlkennedyreid/cookiecutter-python-project
+initiate-project.sh
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -167,7 +170,6 @@ cython_debug/
 # Icon must end with two \r
 Icon
 
-
 # Thumbnails
 ._*
 
@@ -225,6 +227,3 @@ $RECYCLE.BIN/
 
 # .nfs files are created when an open file is removed but is still being accessed
 .nfs*
-
-# cookiecutter template initiation script rlkennedyreid/python-project-template
-initiate-project.sh
