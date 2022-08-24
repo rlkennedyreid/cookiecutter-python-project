@@ -66,6 +66,10 @@ score="no"
 output-format="colorized"
 score="no"
 
+[tool.pylint.MASTER]
+# https://github.com/pydantic/pydantic/issues/1961
+extension-pkg-whitelist="pydantic"
+
 # See links below on exluding directories from pyright (and thus pylance)
 # https://github.com/microsoft/pylance-release/issues/642#issuecomment-732175189
 # https://github.com/microsoft/pyright/blob/main/docs/configuration.md#sample-config-file
