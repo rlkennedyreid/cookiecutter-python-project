@@ -17,13 +17,16 @@ echo_green "Initiating project..."
 if [ -x "$(command -v python)" ] && [ -x "$(command -v poetry)" ] && [ -x "$(command -v git)" ]; then
 
   echo_green "Creating python virtual environment with venv..."
-  python -m venv --upgrade-deps .venv
+  python -m venv --clear --upgrade-deps .venv
 
   echo_green "Activating virtual environment..."
   . .venv/bin/activate
 
-  echo_green "Add development requirements to project..."
-  poetry add --lock -n -D pytest pylint mypy black flake8 isort taskipy pydantic[dotenv]
+  echo_green "Add development dependencies to project..."
+  poetry add --lock -n --group dev pytest pylint mypy black flake8 isort taskipy
+
+  echo_green "Add production dependencies to project..."
+  poetry add --lock -n pydantic[dotenv] typer[all]
 
   echo_green "Installing project..."
   poetry install -n
