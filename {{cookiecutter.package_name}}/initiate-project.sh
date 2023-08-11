@@ -26,7 +26,7 @@ if [ -x "$(command -v python)" ] && [ -x "$(command -v poetry)" ] && [ -x "$(com
   poetry add --lock -n --group dev pytest pylint mypy black flake8 isort taskipy
 
   echo_green "Add production dependencies to project..."
-  poetry add --lock -n pydantic[dotenv] typer[all]
+  poetry add --lock -n pydantic[dotenv] pydantic-settings typer[all]
 
   echo_green "Installing project..."
   poetry install -n
