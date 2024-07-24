@@ -9,16 +9,14 @@ A poetry-based python-project template with settings and tools that I typically 
 
 ## Features
 ### Formatting, Linting and Testing
-- [black](https://github.com/psf/black)
-- [isort](https://github.com/PyCQA/isort)
-- [flake8](https://github.com/PyCQA/flake8)
+- [pytest](https://github.com/pytest-dev/pytest)
+- [ruff](https://docs.astral.sh/ruff/)
 - [pylint](https://github.com/PyCQA/pylint)
 - [mypy](https://github.com/python/mypy)
-- [pytest](https://github.com/pytest-dev/pytest)
 
 [taskipy](https://pypi.org/project/taskipy/) is used to run these tools in pre-commit hooks and the CI/CD.
 **Note:** These tools are not already defined in `pyproject.toml` automatically.
-This is to ensure that the tools are up to date when starting the project.
+This is to ensure that the tools are up to date when initialising the project.
 
 See [below](#initialise-the-project) for details on initialising the project, which includes adding these dev dependencies.
 
@@ -33,8 +31,8 @@ Working [pre-commit](https://pre-commit.com/) hooks to run formatting and lintin
 
 ## Layout
 - [src layout](https://blog.ionelmc.ro/2014/05/25/python-packaging/)
-- [PEP 518](https://www.python.org/dev/peps/pep-0518) compliance where possible (see [pyproject.toml]({{cookiecutter.package_name}}/pyproject.toml) and [setup.cfg]({{cookiecutter.package_name}}/setup.cfg))
-- Python virtual environment assumed to be in root directory by [vscode settings]({{cookiecutter.package_name}}/.vscode)
+- [PEP 518](https://www.python.org/dev/peps/pep-0518) compliance
+- Python virtual environment assumed to be in root directory by [vscode settings]({{cookiecutter.package_name}}/.vscode/settings.json)
 
 ## Usage
 
@@ -58,5 +56,9 @@ The script does the following:
 
 
 Executing the script using [`source/.`](https://www.gnu.org/software/bash/manual/bash.html#index-source) is recommended, as the python virtual environment will be activated for the current shell on completion.
+
+```bash
+. initiate-project.sh
+```
 
 **Note:** The script assumes the `python` in your `PATH` is the correct version.

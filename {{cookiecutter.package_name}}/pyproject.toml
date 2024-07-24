@@ -12,7 +12,7 @@ packages = [
 ]
 
 [tool.poetry.scripts]
-{{cookiecutter.package_name}} = "{{cookiecutter.package_slug}}.__main__:main"
+{{cookiecutter.script_name}} = "{{cookiecutter.package_slug}}.__main__:main"
 
 [tool.poetry.dependencies]
 python = "^{{cookiecutter.python_version}}"
@@ -34,18 +34,6 @@ files = ["src", "tests"]
 #   "module_to_ignore.*",
 # ]
 # ignore_missing_imports = true
-
-[tool.black]
-# extend_exclude = '''
-# ^/exclude_dir/
-# '''
-
-# See: https://black.readthedocs.io/en/stable/guides/using_black_with_other_tools.html
-# For info on compatibility of black with isort, pylint, flake8
-[tool.isort]
-profile = "black"
-src_paths = ["src", "tests"]
-# extend_skip_glob = ["exclude_dir/**"]
 
 [tool.pylint.'MESSAGES CONTROL']
 disable=[
@@ -78,24 +66,14 @@ include = ["src"]
 # exclude = ["exclude_dir/"]
 
 [tool.taskipy.tasks.lint]
-cmd = "task lint_black && task lint_isort && task lint_flake8 && task lint_pylint && task lint_mypy"
+cmd = "task lint_ruff && task lint_pylint && task lint_mypy"
 help = "runs all lint checks"
 
-[tool.taskipy.tasks.format]
-cmd = "task format_black && task format_isort"
-help = "Runs all formatting tasks"
-
-[tool.taskipy.tasks.test]
-cmd = "pytest"
-help = "Runs tests"
-
 [tool.taskipy.tasks]
-lint_black = { cmd = "black --check ."}
-lint_isort = { cmd = "isort --check ."}
-lint_flake8 = { cmd = "flake8"}
-lint_pylint = { cmd = "pylint src tests"}
-lint_mypy = { cmd = "mypy"}
-format_black = { cmd = "black ."}
-format_isort = { cmd = "isort ."}
-post_format = { cmd = "task lint"}
+test = { cmd = "pytest" }
+format = { cmd = "ruff format" }
+lint_ruff = { cmd = "ruff check" }
+lint_pylint = { cmd = "pylint src tests" }
+lint_mypy = { cmd = "mypy" }
+post_format = { cmd = "task lint" }
 pre_test = { cmd = "task format" }

@@ -1,11 +1,11 @@
 {
-  "full_name": "Full Name",
-  "email": "full-name@email.com",
-  "github_username": "fullname",
-  "project_name": "Python Project Template",
-  "package_name": "{{ cookiecutter.project_name.lower().replace(' ', '-').replace('_', '-') }}",
-  "package_slug": "{{ cookiecutter.package_name.lower().replace('-', '_') }}",
-  "python_version": "3.10",
-  "project_short_description": "A poetry-based python-project template with settings and tools that I typically use.",
-  "version": "0.1.0"
+    "full_name": "Full Name",
+    "email": "full-name@email.com",
+    "project_name": "Python Project Template",
+    "package_name": "{{ cookiecutter.project_name.lower().replace(' ', '-').replace('_', '-') }}",
+    "package_slug": "{{ cookiecutter.package_name.lower().replace('-', '_') }}",
+    "script_name": "{{ cookiecutter.package_name }}",
+    "python_version": "3.11",
+    "project_short_description": "A poetry-based python-project template with settings and tools that I typically use.",
+    "version": "0.1.0"
 }
