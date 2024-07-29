@@ -41,9 +41,11 @@ cookiecutter gh:rlkennedyreid/cookiecutter-python-project
 ```
 
 ### Initialise the project
-[A bash script]({{cookiecutter.package_name}}/initiate-project.sh) is included in the root directory of the project to carry out initial configuration. You can run this, or use it as a reference to set up your project.
+[A cookiecutter hook](./hooks/post_gen_project.sh) is included in the root directory of the project to carry out initial configuration.
 
-The script does the following:
+This hook will run once your project is generated.
+
+The hook script does the following:
 - Creates a virtual environment using [venv](https://docs.python.org/3/library/venv.html)
 - Adds dev dependencies to the project
 - Installs the project into the virtual environment
@@ -53,11 +55,13 @@ The script does the following:
 - Installs gitmoji hooks to the git repository
     - *This is skipped if gitmoji is not available*
 
-
-Executing the script using [`source/.`](https://www.gnu.org/software/bash/manual/bash.html#index-source) is recommended, as the python virtual environment will be activated for the current shell on completion.
+After it has run, you can activate the virtual environment manually.
 
 ```bash
-. initiate-project.sh
+. ./.venv/bin/activate
 ```
 
-**Note:** The script assumes the `python` in your `PATH` is the correct version.
+Or you can use [poetry run](https://python-poetry.org/docs/basic-usage/#using-poetry-run)
+
+**Note:** The script assumes the `python` in your `PATH` is the correct version when it runs.
+If you're using pyenv, this should be ensured by the [.python-version](./{{cookiecutter.package_name}}/.python-version) file in the project.
