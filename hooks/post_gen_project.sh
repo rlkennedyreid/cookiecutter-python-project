@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# http://redsymbol.net/articles/unofficial-bash-strict-mode/
+set -euo pipefail
+
 function echo_green() {
     local GREEN='\033[0;32m'
     local NOCOLOUR='\033[0m'
@@ -33,6 +36,7 @@ if [ -x "$(command -v python)" ] && [ -x "$(command -v poetry)" ] && [ -x "$(com
 
     echo_green "Initialising git..."
     git init
+
 
     if [ -x "$(command -v pre-commit)" ]; then
         echo_green 'Installing pre-commit hooks...'
