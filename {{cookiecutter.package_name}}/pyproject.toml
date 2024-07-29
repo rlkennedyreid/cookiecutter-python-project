@@ -35,29 +35,6 @@ files = ["src", "tests"]
 # ]
 # ignore_missing_imports = true
 
-[tool.pylint.'MESSAGES CONTROL']
-disable=[
-  "all",
-]
-
-enable=[
-  "E",
-  "F",
-]
-
-[tool.pylint.FORMAT]
-max-line-length = "88"
-output-format="colorized"
-score="no"
-
-[tool.pylint.REPORTS]
-output-format="colorized"
-score="no"
-
-[tool.pylint.MASTER]
-# https://github.com/pydantic/pydantic/issues/1961
-extension-pkg-whitelist="pydantic"
-
 # See links below on exluding directories from pyright (and thus pylance)
 # https://github.com/microsoft/pylance-release/issues/642#issuecomment-732175189
 # https://github.com/microsoft/pyright/blob/main/docs/configuration.md#sample-config-file
@@ -66,14 +43,13 @@ include = ["src"]
 # exclude = ["exclude_dir/"]
 
 [tool.taskipy.tasks.lint]
-cmd = "task lint_ruff && task lint_pylint && task lint_mypy"
+cmd = "task lint_ruff && task lint_mypy"
 help = "runs all lint checks"
 
 [tool.taskipy.tasks]
 test = { cmd = "pytest" }
 format = { cmd = "ruff format" }
 lint_ruff = { cmd = "ruff check" }
-lint_pylint = { cmd = "pylint src tests" }
 lint_mypy = { cmd = "mypy" }
 post_format = { cmd = "task lint" }
 pre_test = { cmd = "task format" }

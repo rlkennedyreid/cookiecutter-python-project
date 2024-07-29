@@ -11,7 +11,6 @@ A poetry-based python-project template with settings and tools that I typically 
 ### Formatting, Linting and Testing
 - [pytest](https://github.com/pytest-dev/pytest)
 - [ruff](https://docs.astral.sh/ruff/)
-- [pylint](https://github.com/PyCQA/pylint)
 - [mypy](https://github.com/python/mypy)
 
 [taskipy](https://pypi.org/project/taskipy/) is used to run these tools in pre-commit hooks and the CI/CD.
