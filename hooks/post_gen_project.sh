@@ -17,6 +17,25 @@ echo_error() {
 
 echo_green "Initiating project..."
 
+# Which is crazier:
+# 1. Running a bash script in Python using subprocess
+# 2. Running a python script in bash using a here document
+# 3. Being too lazy to write a simple bash script to rename files for a consistent startup hook?
+
+python - <<'END'
+# https://github.com/cookiecutter/cookiecutter/issues/1601
+
+# Create a "hooks" directory at the root of your Cookiecutter project, then add this file to it.
+import os
+
+
+for path, subdirs, files in os.walk("."):
+    for name in files:
+        if name.endswith(".j2"):
+            os.rename(os.path.join(path, name), os.path.join(path, name.rstrip(".j2")))
+
+END
+
 if [ -x "$(command -v python)" ] && [ -x "$(command -v poetry)" ] && [ -x "$(command -v git)" ]; then
 
     echo_green "Creating python virtual environment with venv..."
@@ -52,6 +71,7 @@ if [ -x "$(command -v python)" ] && [ -x "$(command -v poetry)" ] && [ -x "$(com
     fi
 else
     echo_error 'Error: Required dependencies not found. Need: [python, poetry, git]'
+    return 1
 fi
 
 unset -f echo_green echo_error
